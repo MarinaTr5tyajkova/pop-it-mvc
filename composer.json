@@ -1,0 +1,22 @@
+{
+    "name": "marinatr5tyajkova/pop-it-mvc",
+    "description": "Simple mvcfreamework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "MarinaTr5tyakova",
+            "email": "tretyakowamarina26@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+}
