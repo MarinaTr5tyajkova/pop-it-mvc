@@ -1,6 +1,6 @@
 {
     "name": "marinatr5tyajkova/pop-it-mvc",
-    "description": "Simple mvcfreamework",
+    "description": "Simple mvc framework",
     "type": "project",
     "license": "MIT",
     "authors": [
@@ -11,7 +11,7 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "php": "^7.4 | ^8.0"
+        "php": "^7.4 | ^8.1"
     },
     "autoload": {
         "psr-4": {

@@ -1,12 +1,16 @@
 <?php
 namespace Controller;
+
 use Src\View;
+
 class Site {
     public function index(): string {
-        return new View('site.hello', ['message' => 'Index работает!']);
+        $view = new View();
+        return $view->render('site.hello', ['message' => 'Welcome to the Home Page!']);
     }
 
     public function hello(): string {
-        return new View('site.hello', ['message' => 'Hello работает!']);
+        $view = new View();
+        return $view->render('site.hello', ['message' => 'This is the Hello Page!']);
     }
 }

@@ -1,6 +1,6 @@
 <?php
 return [
-    'root' => 'pop-it-mvc',
-    'routes' => 'routes',
-    'views' => 'views'
+    'root' => 'pop-it-mvc', // Префикс для маршрутов
+    'routes' => 'routes',   // Директория с маршрутами
+    'views' => 'views',     // Директория с представлениями
 ];

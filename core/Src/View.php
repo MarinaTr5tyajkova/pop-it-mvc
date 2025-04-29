@@ -1,70 +1,55 @@
 <?php
-
 namespace Src;
 
 use Exception;
 
-class View
-{
+class View {
     private string $view = '';
     private array $data = [];
     private string $root = '';
     private string $layout = '/layouts/main.php';
 
-    public function __construct(string $view = '', array $data = [])
-    {
+    public function __construct(string $view = '', array $data = []) {
         $this->root = $this->getRoot();
         $this->view = $view;
         $this->data = $data;
     }
 
-    //Полный путь до директории с представлениями
-    private function getRoot(): string
-    {
+    private function getRoot(): string {
         global $app;
         $root = $app->settings->getRootPath();
         $path = $app->settings->getViewsPath();
-
         return $_SERVER['DOCUMENT_ROOT'] . $root . $path;
     }
 
-    //Путь до основного файла с шаблоном сайта
-    private function getPathToMain(): string
-    {
+    private function getPathToMain(): string {
         return $this->root . $this->layout;
     }
 
-    //Путь до текущего шаблона
-    private function getPathToView(string $view = ''): string
-    {
+    private function getPathToView(string $view = ''): string {
         $view = str_replace('.', '/', $view);
-        return $this->getRoot() . "/$view.php";
+        $path = $this->getRoot() . "/$view.php";
+        echo "Generated view path: $path\n"; // Отладочная информация
+        return $path;
     }
 
-    public function render(string $view = '', array $data = []): string
-    {
+    public function render(string $view = '', array $data = []): string {
         $path = $this->getPathToView($view);
-
-        if (file_exists($this->getPathToMain()) && file_exists($path)) {
-
-            //Импортирует переменные из массива в текущую таблицу символов
-            extract($data, EXTR_PREFIX_SAME, '');
-
-            //Включение буферизации вывода
-            ob_start();
-            require $path;
-            //Помещаем буфер в переменную и очищаем его
-            $content = ob_get_clean();
-
-            //Возвращаем собранную страницу
-            return require($this->getPathToMain());
+        if (!file_exists($path)) {
+            throw new Exception("Template file not found: $path");
         }
-        throw new Exception('Error render');
+        if (!file_exists($this->getPathToMain())) {
+            throw new Exception("Layout file not found: " . $this->getPathToMain());
+        }
+
+        extract($data, EXTR_PREFIX_SAME, '');
+        ob_start();
+        require $path;
+        $content = ob_get_clean();
+        return require($this->getPathToMain());
     }
 
-    public function __toString(): string
-    {
+    public function __toString(): string {
         return $this->render($this->view, $this->data);
     }
-
 }

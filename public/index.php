@@ -1,12 +1,11 @@
 <?php
-
-//echo 'hello world';
-
-//Включаем запрет на неявное преобразование типов
 declare(strict_types=1);
 
 try {
-    //Создаем экземпляр приложения и запускаем его
+    // Подключаем автозагрузчик Composer
+    require_once __DIR__ . '/../vendor/autoload.php';
+
+    // Инициализируем приложение
     $app = require_once __DIR__ . '/../core/bootstrap.php';
     $app->run();
 } catch (\Throwable $exception) {

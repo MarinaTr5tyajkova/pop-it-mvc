@@ -26,11 +26,6 @@ class ComposerStaticInit6b7e32f66c8de1ca5a04790733373ceb
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'Controller\\Site' => __DIR__ . '/../..' . '/app/Controller/Site.php',
-        'Src\\Application' => __DIR__ . '/../..' . '/core/Src/Application.php',
-        'Src\\Route' => __DIR__ . '/../..' . '/core/Src/Route.php',
-        'Src\\Settings' => __DIR__ . '/../..' . '/core/Src/Settings.php',
-        'Src\\View' => __DIR__ . '/../..' . '/core/Src/View.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
