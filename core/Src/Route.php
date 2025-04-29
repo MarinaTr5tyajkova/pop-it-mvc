@@ -28,9 +28,9 @@ class Route {
         // Удаляем начальный и конечный слэши
         $path = trim($path, '/');
 
-        // Отладочная информация
-        echo "Requested path: '$path'\n"; // Выводим путь для отладки
-        echo "Available routes: " . print_r(array_keys(self::$routes), true) . "\n"; // Все доступные маршруты
+        // УБИРАЕМ ОТЛАДОЧНУЮ ИНФОРМАЦИЮ
+        // echo "Requested path: '$path'\n"; // Выводим путь для отладки
+        // echo "Available routes: " . print_r(array_keys(self::$routes), true) . "\n"; // Все доступные маршруты
 
         // Проверяем, существует ли маршрут
         if (!array_key_exists($path, self::$routes)) {

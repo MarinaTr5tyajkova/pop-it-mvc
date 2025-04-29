@@ -29,7 +29,6 @@ class View {
     private function getPathToView(string $view = ''): string {
         $view = str_replace('.', '/', $view);
         $path = $this->getRoot() . "/$view.php";
-        echo "Generated view path: $path\n"; // Отладочная информация
         return $path;
     }
 
