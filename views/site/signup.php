@@ -1,3 +1,13 @@
+<?php if (isset($message)): ?>
+    <div class="alert alert-danger">
+        <?php foreach (json_decode($message, true) as $field => $errors): ?>
+            <?php foreach ($errors as $error): ?>
+                <p><?= $error ?></p>
+            <?php endforeach; ?>
+        <?php endforeach; ?>
+    </div>
+<?php endif; ?>
+
 <h2>Регистрация нового пользователя</h2>
 <h3><?= $message ?? ''; ?></h3>
 <form method="post">
