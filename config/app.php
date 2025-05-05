@@ -9,10 +9,12 @@ return [
         'auth' => \Middlewares\AuthMiddleware::class,
     ],
     'validators' => [
-    'required' => \Validators\RequireValidator::class,
-    'unique' => \Validators\UniqueValidator::class
+        'required' => \Validators\RequireValidator::class,
+        'unique' => \Validators\UniqueValidator::class
     ],
     'routeAppMiddleware' => [
         'trim' => \Middlewares\TrimMiddleware::class,
+        'specialChars' => \Middlewares\SpecialCharsMiddleware::class,
     ],
+
 ];
